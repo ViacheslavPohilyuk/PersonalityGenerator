@@ -19,6 +19,7 @@ public class Date {
         this.monthIndex = (dateString.indexOf(' ') + 1);
     }
 
+    /** Getting local date (UTC+2)  */
     public LocalDate getLocaleDate() {
         Instant instant = dateFormater().toInstant();
         ZoneId zoneId = ZoneId.of ("Africa/Cairo");
@@ -26,6 +27,7 @@ public class Date {
         return zoneTime.toLocalDate();
     }
 
+    /** Converting date-string to a Date object */
     private java.util.Date dateFormater() {
         SimpleDateFormat dataFormat = new SimpleDateFormat("dd.MM.yyyy");
 
@@ -44,6 +46,7 @@ public class Date {
         return birthday;
     }
 
+    /** Get day from a input date string */
     private String getDay() {
         String day = (monthIndex < 3)? "0" : "";
         for(int i = 0; i < (monthIndex - 1); i++)
@@ -52,6 +55,7 @@ public class Date {
         return day;
     }
 
+    /** Get a year from the date string */
     private String getYear() {
         String year = "";
         final int yearSize = 4;
@@ -70,6 +74,7 @@ public class Date {
         return year;
     }
 
+    /** Get a month from the date string */
     private String getMonth() {
         char symbol;
         boolean flag = false;
@@ -90,6 +95,7 @@ public class Date {
         return month;
     }
 
+    /** Converting names of month on russian to their index numbers */
     private String monthIndex(String month) {
         String[] months = {
                 "января", "февраля", "марта",

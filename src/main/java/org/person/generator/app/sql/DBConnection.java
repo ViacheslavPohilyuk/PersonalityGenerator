@@ -6,8 +6,13 @@ import java.util.Properties;
 /**
  * Created by mac on 30.01.17.
  */
+
 public class DBConnection {
     private Connection conn = null;
+
+    /** Read connection data from the properties file.
+     *  And getting Connection object
+     *  */
     public synchronized Connection getConnection()
     {
         Properties prop = new Properties();

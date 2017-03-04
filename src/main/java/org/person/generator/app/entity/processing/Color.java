@@ -10,6 +10,7 @@ public class Color {
         this.rusColor = rusColor;
     }
 
+    /** Translate name of color from russian to english */
     public String colorSwap () {
         String[] russianColors = {"Фиолетовый", "Синий", "Оранжевый",
                                   "Голубой", "Белый", "Красный",

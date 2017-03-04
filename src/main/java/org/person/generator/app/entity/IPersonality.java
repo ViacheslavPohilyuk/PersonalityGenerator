@@ -33,4 +33,16 @@ public interface IPersonality {
     String getColor();
 
     String getUserpic();
+
+    void setLname(String lname);
+
+    void setFname(String fname) ;
+
+    void setPatronymic(String patronymic);
+
+    void setCity(String city);
+
+    void setStreet(String street);
+
+    void setColor(String color);
 }

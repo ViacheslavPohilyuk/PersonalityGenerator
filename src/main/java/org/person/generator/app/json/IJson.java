@@ -6,7 +6,7 @@ import org.person.generator.app.entity.Personality;
  * Created by mac on 28.01.17.
  */
 public interface IJson {
-
-    Personality personality() throws Exception;
+    /** Converting json-string to a java object Personality */
+    Personality jsonReadPersonality() throws Exception;
 
 }

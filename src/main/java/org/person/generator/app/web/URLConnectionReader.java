@@ -21,6 +21,7 @@ public class URLConnectionReader {
         return result;
     }
 
+    /** Opening connection to the website http://randus.ru/api.php" */
     private void connectURL() {
         try {
             randus = new URL("http://randus.ru/api.php");
@@ -34,11 +35,12 @@ public class URLConnectionReader {
             yc = randus.openConnection();
         }
         catch (IOException e) {
-            System.err.println("");
+            System.err.println("Connecting error!");
             e.printStackTrace();
         }
     }
 
+    /** Getting data about random person in json format */
     private void jsonPersonData() {
         StringBuilder jsonResult = new StringBuilder();
 

@@ -5,7 +5,7 @@ package org.person.generator.app.entity.processing;
  */
 public class Transliteration {
         private final String[] charTable = new String[65536];
-        {
+    {
             charTable['А'] = "A";  charTable['К'] = "K";  charTable['Х'] = "H";
             charTable['Б'] = "B";  charTable['Л'] = "L";  charTable['Ц'] = "C";
             charTable['В'] = "V";  charTable['М'] = "M";  charTable['Ч'] = "CH";
@@ -27,6 +27,7 @@ public class Transliteration {
             }
         }
 
+        /** Transliterate russian letters in a string to english ones */
         public String translit(String text) {
             char charBuffer[] = text.toCharArray();
             StringBuffer sb = new StringBuffer(text.length());

@@ -20,6 +20,9 @@ public class App {
         dbc = new DBConnection();
     }
 
+    /** Entering number of persons those you want to generate.
+     *  And checking the correctness of input data
+     * */
     public void entry() {
         int personCount = 0;
         boolean entry = false;
@@ -38,13 +41,18 @@ public class App {
         generating(personCount);
     }
 
+    /** Generating persons
+     * Firstly, convert json to Personality object
+     * Secondly, get connection to a database
+     * Finally, processing person's data and insert ones to the database
+     * */
     private void generating (int accCount)  {
         int k = 1;
         Personality person;
         Connection connection = dbc.getConnection();
 
         for(int i = 1; i <= accCount; i++) {
-            person = jsonEntity.personality();
+            person = jsonEntity.jsonReadPersonality();
             PersonUpdate pu = new PersonUpdate(connection, person);
             pu.doUpdate();
 

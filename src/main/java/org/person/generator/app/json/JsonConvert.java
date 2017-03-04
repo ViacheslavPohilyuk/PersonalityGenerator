@@ -12,7 +12,7 @@ import java.io.IOException;
 public class JsonConvert implements IJson {
 
     @Override
-    public Personality personality()  {
+    public Personality jsonReadPersonality()  {
         URLConnectionReader ucr = new URLConnectionReader();
 
         Personality person = null;

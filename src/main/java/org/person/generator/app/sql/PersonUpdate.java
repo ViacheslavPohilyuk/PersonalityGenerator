@@ -22,6 +22,7 @@ public class PersonUpdate {
         this.person = person;
     }
 
+    /** Adding new person's data to a database*/
     public void doUpdate() {
         try (PreparedStatement queryUpdate = conn.prepareStatement(sql())) {
             conn.setAutoCommit(false);
@@ -29,7 +30,6 @@ public class PersonUpdate {
             setParameters(queryUpdate);
             queryUpdate.executeUpdate();
             conn.commit();
-
         }
         catch (SQLException e) {
             e.printStackTrace();
@@ -53,6 +53,14 @@ public class PersonUpdate {
         }
     }
 
+    /** Processing random person's data
+     *  Transliteration : convert russian letters in first name,
+     *                    surname, patronymic, city and street to
+     *                    english ones
+     *  Color : translate russian colors to english
+     *  Double name: truncate the double name and leave only
+     *               first part of this one
+     * */
     private void processData() {
         /* Transliteration from cyrillic to latin */
         Transliteration trl = new Transliteration();
@@ -70,6 +78,8 @@ public class PersonUpdate {
         person.setColor(colorProcess.colorSwap());
     }
 
+
+    /** Setting parameters for precompiled sql-query*/
     private void setParameters(PreparedStatement preparedStatement) throws SQLException {
         Date dateProcess = new Date(person.getDate());
 
@@ -90,6 +100,7 @@ public class PersonUpdate {
         preparedStatement.setString(15, person.getUserpic());
     }
 
+    /** Sql-query for inserting random person */
     private String sql() {
         return "INSERT INTO DB.Person("
                 + "LastName, FirstName, Patronymic, Gender, BirthDate, "

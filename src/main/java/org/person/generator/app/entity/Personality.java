@@ -45,6 +45,7 @@ public class Personality implements IPersonality {
         this.userpic = userpic;
     }
 
+    /** Getters */
     @Override
     public String getLname() { return lname; }
 
@@ -118,31 +119,26 @@ public class Personality implements IPersonality {
         return userpic;
     }
 
-    public void setLname(String lname) {
-        this.lname = lname;
-    }
+    /** Setters */
+    @Override
+    public void setLname(String lname) { this.lname = lname; }
 
-    public void setFname(String fname) {
-        this.fname = fname;
-    }
+    @Override
+    public void setFname(String fname) { this.fname = fname; }
 
-    public void setPatronymic(String patronymic) {
-        this.patronymic = patronymic;
-    }
+    @Override
+    public void setPatronymic(String patronymic) { this.patronymic = patronymic; }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
+    @Override
+    public void setCity(String city) { this.city = city; }
 
-    public void setStreet(String street) {
-        this.street = street;
-    }
+    @Override
+    public void setStreet(String street) { this.street = street; }
 
-    public void setColor(String color) {
-        this.color = color;
-    }
+    @Override
+    public void setColor(String color) { this.color = color; }
 
-    public void print() {
+    void print() {
         System.out.println("Фамилия - " + lname);
         System.out.println("Имя - " + fname);
         System.out.println("Отчество - " + patronymic);
